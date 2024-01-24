@@ -12,14 +12,17 @@ public enum stateMachine
 
 public class GameController : MonoBehaviour
 {
+    
     private stateMachine currentState = stateMachine.START;
     private stateMachine lastState = stateMachine.NULL;
 
+    [Header("Class")]
     public CharacterMoviment moviment;
     public AnimationCharacter animationCharacter;
+    [Header("StateGame")]
     public GameObject Winneer, gameOver, Paused, character;
-   
-  
+
+    public static GameController gc;
     
     
 
@@ -91,7 +94,7 @@ public class GameController : MonoBehaviour
       
         // Mostra uma tela de vitória e executa ações relacionadas à vitória.
         BasicInputs();
-        
+        Winneer.SetActive(true);
         // Outras ações relacionadas à vitória.
     }
 
@@ -99,7 +102,9 @@ public class GameController : MonoBehaviour
     {
         
         // Mostra uma tela de derrota e desativa o personagem.
+
         gameOver.SetActive(true);
+
         character.SetActive(false);
     }
 

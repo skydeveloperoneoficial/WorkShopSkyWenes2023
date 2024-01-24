@@ -12,9 +12,10 @@ public class Spikes : MonoBehaviour
      private void OnTriggerEnter2D(Collider2D other) {
          if( other.transform.gameObject.CompareTag("Player"))
          {
-            gc.SwitchState(stateMachine.DEAD);
-            
-            other.GetComponent<CharacterMoviment>();
+            //gc.SwitchState(stateMachine.DEAD);
+            //chamamos um metodo de hit do player
+            other.GetComponent<Character>().Hit();
+            //other.GetComponent<CharacterMoviment>();
             //Debug.Log("Player Dead");//
          }
      }

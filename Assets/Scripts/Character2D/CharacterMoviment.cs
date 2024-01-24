@@ -5,23 +5,28 @@ public class CharacterMoviment : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private int layerNumber;
-    [SerializeField] private int jumpAnim;
+    
     
     private Rigidbody2D rb2;
     public bool isGround;
     public Vector2 direction;
 
+    private AnimationCharacter animationCharacter;
     private void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
+        animationCharacter = GetComponent<AnimationCharacter>();
     }
-
-    private void Update()
+    //Metodo Update
+    //private void Update()
+    //{
+    //    HandleInput();
+    //    HandleMovement();
+    //}
+    private void FixedUpdate()
     {
-        HandleInput();
-        HandleMovement();
+        
     }
-
     public  void HandleInput()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -54,7 +59,8 @@ public class CharacterMoviment : MonoBehaviour
         rb2.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         isGround = false;
         // Você pode chamar métodos relacionados à animação aqui, se necessário.
-        // AnimationCharacter.animCharacter.SetInteger("trasition", jumpAnim);
+
+        animationCharacter.SetAnimation(animationCharacter.JumpAnim);
     }
 
     private void UpdateDirection(float horizontalInput)

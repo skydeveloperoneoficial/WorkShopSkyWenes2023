@@ -4,10 +4,12 @@ public class ControllerScene:MonoBehaviour
 
 {
     public static bool ActiveEndWindows;
-    private void Start()
+    private void Awake()
     {
         ActiveEndWindows = this;
     }
+    
+    
     public static void SetScene(string nameScene)
     {
         SceneManager.LoadScene(nameScene);

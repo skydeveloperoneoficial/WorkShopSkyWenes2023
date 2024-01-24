@@ -2,9 +2,13 @@
 
 public class AnimationCharacter : MonoBehaviour
 {
-    [SerializeField] private int runAnimation, idleAnimation;
+    [Header("AnimationState")]
+    [SerializeField] private int runAnimation, idleAnimation,jumpAnim;
+    [Header("Component")]
     private Animator animCharacter;
     private CharacterMoviment moviment;
+
+    public int JumpAnim { get => jumpAnim; set => jumpAnim = value; }
 
     private void Start()
     {
@@ -32,8 +36,9 @@ public class AnimationCharacter : MonoBehaviour
             SetAnimation(idleAnimation);
         }
     }
+    
 
-    private void SetAnimation(int animationValue)
+    public void SetAnimation(int animationValue)
     {
         animCharacter.SetInteger("transition", animationValue);
     }
