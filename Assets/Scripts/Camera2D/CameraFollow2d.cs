@@ -4,7 +4,7 @@ public class CameraFollow2d : MonoBehaviour
 {
     public Transform target;
     public static CameraFollow2d Instance;
-    public static bool enableCamera = true;
+    public static bool enableCamera = true;// ativa e desafiva camera
 
     // Start is called before the first frame update
     void Start()
